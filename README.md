@@ -1,1 +1,1 @@
-# BookStore.NetCore
+www.patika.dev
