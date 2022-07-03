@@ -1,3 +1,4 @@
+using API.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.DB
@@ -8,7 +9,22 @@ namespace API.DB
         {
             using (var context = new Context(serviceProvider.GetRequiredService<DbContextOptions<Context>>()))
             {
+
+                context.Genres.AddRange(new Genre
+                {
+                    Name = "Personel Growth"
+                },
+                new Genre
+                {
+                    Name = "Science Fiction"
+                },
+                new Genre
+                {
+                    Name = "Novel"
+                });
+
                 if (context.Books.Any()) return;
+
                 context.Books.AddRange(new Book
                 {
                     Title = "Lean Startup",
@@ -30,6 +46,7 @@ namespace API.DB
                     PageCount = 1250,
                     PublishDate = new DateTime(2006, 12, 21)
                 });
+
                 context.SaveChanges();
             }
         }

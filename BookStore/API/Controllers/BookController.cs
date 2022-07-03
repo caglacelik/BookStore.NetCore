@@ -1,15 +1,14 @@
-using API.BookOperations.CreateBook;
-using API.BookOperations.DeleteBook;
-using API.BookOperations.GetBookDetail;
-using API.BookOperations.GetBooks;
-using API.BookOperations.UpdateBook;
+using API.Application.BookOperations.CreateBook;
+using API.Application.BookOperations.DeleteBook;
+using API.Application.BookOperations.GetBookDetail;
+using API.Application.BookOperations.GetBooks;
+using API.Application.BookOperations.UpdateBook;
 using API.DB;
 using AutoMapper;
 using FluentValidation;
-using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using static API.BookOperations.CreateBook.CreateBookCommand;
-using static API.BookOperations.UpdateBook.UpdateBookCommand;
+using static API.Application.BookOperations.CreateBook.CreateBookCommand;
+using static API.Application.BookOperations.UpdateBook.UpdateBookCommand;
 
 namespace API.Controllers
 {
