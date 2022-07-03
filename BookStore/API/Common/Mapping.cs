@@ -1,8 +1,8 @@
 using API.Common;
 using AutoMapper;
-using static CreateBookCommand;
-using static GetBookDetailQuery;
-using static GetBooksQuery;
+using static API.BookOperations.CreateBook.CreateBookCommand;
+using static API.BookOperations.GetBookDetail.GetBookDetailQuery;
+using static API.BookOperations.GetBooks.GetBooksQuery;
 
 namespace API.Common
 {
