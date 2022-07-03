@@ -1,39 +1,34 @@
 using API;
 using API.Common;
 using API.DB;
+using AutoMapper;
 
-public class GetBooksQuery
+namespace API.BookOperations.GetBooks
 {
-
-    private readonly Context _context;
-    public GetBooksQuery(Context context)
+    public class GetBooksQuery
     {
-        _context = context;
-    }
 
-    public List<BookViewModel> Handle()
-    {
-        var books = _context.Books.OrderBy(x => x.Id).ToList<Book>();
-        List<BookViewModel> models = new List<BookViewModel>();
-        foreach (var book in books)
+        private readonly Context _context;
+        private readonly IMapper _mapper;
+        public GetBooksQuery(Context context, IMapper mapper)
         {
-            models.Add(new BookViewModel()
-            {
-                Title = book.Title,
-                Genre = ((GenreEnum)book.GenreId).ToString(),
-                PublishDate = book.PublishDate.ToShortDateString(),
-                PageCount = book.PageCount
-            });
+            _context = context;
+            _mapper = mapper;
         }
-        return models;
-    }
 
-    public class BookViewModel
-    {
-        public string Title { get; set; }
-        public int PageCount { get; set; }
-        public string PublishDate { get; set; }
-        public string Genre { get; set; }
-    }
+        public List<BookViewModel> Handle()
+        {
+            var books = _context.Books.OrderBy(x => x.Id).ToList<Book>();
+            return _mapper.Map<List<BookViewModel>>(books);
+        }
 
+        public class BookViewModel
+        {
+            public string Title { get; set; }
+            public int PageCount { get; set; }
+            public string PublishDate { get; set; }
+            public string Genre { get; set; }
+        }
+
+    }
 }

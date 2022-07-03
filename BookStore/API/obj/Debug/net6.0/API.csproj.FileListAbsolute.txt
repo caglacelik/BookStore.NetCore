@@ -29,3 +29,6 @@ C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\global.json
 C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\mvi\Desktop\.netCorePatikasi\BookStore\API\bin\Debug\net6.0\FluentValidation.dll

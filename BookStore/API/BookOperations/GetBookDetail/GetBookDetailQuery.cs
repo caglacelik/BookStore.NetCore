@@ -1,33 +1,35 @@
-
-
 using API.Common;
 using API.DB;
+using AutoMapper;
 
-public class GetBookDetailQuery
+
+namespace API.BookOperations.GetBookDetail
 {
-    private readonly Context _context;
-    public int BookId { get; set; }
-    public GetBookDetailQuery(Context context)
+    public class GetBookDetailQuery
     {
-        _context = context;
-    }
+        private readonly Context _context;
+        private readonly IMapper _mapper;
+        public int BookId { get; set; }
+        public GetBookDetailQuery(Context context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
 
-    public BookDetailViewModel Handle()
-    {
-        var book = _context.Books.Where(x => x.Id == BookId).SingleOrDefault();
-        if (book is null) throw new InvalidOperationException("Kitap bulunamadı");
-        BookDetailViewModel bookDetailViewModel = new BookDetailViewModel();
-        bookDetailViewModel.Title = book.Title;
-        bookDetailViewModel.Genre = ((GenreEnum)book.GenreId).ToString();
-        bookDetailViewModel.PageCount = book.PageCount;
-        bookDetailViewModel.PublishDate = book.PublishDate.ToShortDateString();
-        return bookDetailViewModel;
-    }
-    public class BookDetailViewModel
-    {
-        public string Title { get; set; }
-        public int PageCount { get; set; }
-        public string PublishDate { get; set; }
-        public string Genre { get; set; }
+        public BookDetailViewModel Handle()
+        {
+            var book = _context.Books.Where(x => x.Id == BookId).SingleOrDefault();
+            if (book is null) throw new InvalidOperationException("Kitap bulunamadı");
+            return _mapper.Map<BookDetailViewModel>(book);
+
+        }
+
+        public class BookDetailViewModel
+        {
+            public string Title { get; set; }
+            public int PageCount { get; set; }
+            public string PublishDate { get; set; }
+            public string Genre { get; set; }
+        }
     }
 }

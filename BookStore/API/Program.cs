@@ -1,3 +1,4 @@
+using System.Reflection;
 using API.DB;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(options =>
 options.UseInMemoryDatabase(databaseName: "BookStoreDB"));
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 var app = builder.Build();
 
 DataGenerator.Initialize(app.Services.CreateScope().ServiceProvider);

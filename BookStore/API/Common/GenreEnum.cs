@@ -1,9 +1,12 @@
-namespace API.Common;
-
-public enum GenreEnum
+namespace API.Common
 {
-    PersonelGrowth = 1,
-    ScienceFiction = 2,
-    Novel = 3
+    public enum GenreEnum
+    {
+        PersonelGrowth = 1,
+        ScienceFiction = 2,
+        Novel = 3
+    }
+
 }
+
 
