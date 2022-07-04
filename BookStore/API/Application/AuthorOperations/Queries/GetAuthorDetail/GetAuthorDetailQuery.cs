@@ -6,9 +6,9 @@ namespace API.Application.AuthorOperations.GetAuthorDetail
     public class GetAuthorDetailQuery
     {
         public int AuthorId { get; set; }
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public GetAuthorDetailQuery(Context context, IMapper mapper)
+        public GetAuthorDetailQuery(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

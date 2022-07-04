@@ -8,9 +8,9 @@ namespace API.Application.AuthorOperations.CreateAuthor
     public class CreateAuthorCommand
     {
         public CreateAuthorViewModel Model { get; set; }
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public CreateAuthorCommand(Context context, IMapper mapper)
+        public CreateAuthorCommand(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -21,7 +21,7 @@ namespace API.Application.AuthorOperations.CreateAuthor
             var author = _context.Authors.SingleOrDefault(x => x.FirstName == Model.FirstName && x.LastName == Model.LastName);
             if (author is not null) throw new InvalidOperationException("Yazar zaten mevcut");
 
-            _context.Add(_mapper.Map<Author>(Model));
+            _context.Authors.Add(_mapper.Map<Author>(Model));
             _context.SaveChanges();
         }
 

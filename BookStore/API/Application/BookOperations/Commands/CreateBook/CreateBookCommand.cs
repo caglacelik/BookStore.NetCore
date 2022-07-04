@@ -7,9 +7,9 @@ namespace API.Application.BookOperations.CreateBook
     public class CreateBookCommand
     {
         public CreateBookViewModel Model { get; set; }
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public CreateBookCommand(Context context, IMapper mapper)
+        public CreateBookCommand(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -20,7 +20,7 @@ namespace API.Application.BookOperations.CreateBook
             var book = _context.Books.SingleOrDefault(x => x.Title == Model.Title);
             if (book is not null) throw new InvalidOperationException("Kitap zaten mevcut");
 
-            _context.Add(_mapper.Map<Book>(Model));
+            _context.Books.Add(_mapper.Map<Book>(Model));
             _context.SaveChanges();
         }
 

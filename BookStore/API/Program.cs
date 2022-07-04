@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<Context>(options =>
 options.UseInMemoryDatabase(databaseName: "BookStoreDB"));
 
+builder.Services.AddScoped<IContext, Context>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
 

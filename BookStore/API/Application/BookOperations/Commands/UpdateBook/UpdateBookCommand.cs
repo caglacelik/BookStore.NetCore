@@ -7,8 +7,8 @@ namespace API.Application.BookOperations.UpdateBook
     {
         public UpdateBookViewModel Model { get; set; }
         public int BookId { get; set; }
-        private readonly Context _context;
-        public UpdateBookCommand(Context context)
+        private readonly IContext _context;
+        public UpdateBookCommand(IContext context)
         {
             _context = context;
         }

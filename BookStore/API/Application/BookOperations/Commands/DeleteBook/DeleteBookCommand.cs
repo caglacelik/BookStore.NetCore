@@ -5,8 +5,8 @@ namespace API.Application.BookOperations.DeleteBook
     public class DeleteBookCommand
     {
         public int BookId { get; set; }
-        private readonly Context _context;
-        public DeleteBookCommand(Context context)
+        private readonly IContext _context;
+        public DeleteBookCommand(IContext context)
         {
             _context = context;
         }

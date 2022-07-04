@@ -16,9 +16,9 @@ namespace API.Controllers
     [Route("[controller]s")]
     public class GenreController : ControllerBase
     {
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public GenreController(Context context, IMapper mapper)
+        public GenreController(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

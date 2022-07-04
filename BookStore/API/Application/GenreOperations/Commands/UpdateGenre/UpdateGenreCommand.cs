@@ -7,8 +7,8 @@ namespace API.Application.GenreOperations.UpdateGenre
     {
         public UpdateGenreViewModel Model { get; set; }
         public int GenreId { get; set; }
-        private readonly Context _context;
-        public UpdateGenreCommand(Context context)
+        private readonly IContext _context;
+        public UpdateGenreCommand(IContext context)
         {
             _context = context;
         }

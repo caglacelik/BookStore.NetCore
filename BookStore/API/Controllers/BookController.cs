@@ -16,9 +16,9 @@ namespace API.Controllers
     [Route("[controller]s")]
     public class BookController : ControllerBase
     {
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public BookController(Context context, IMapper mapper)
+        public BookController(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

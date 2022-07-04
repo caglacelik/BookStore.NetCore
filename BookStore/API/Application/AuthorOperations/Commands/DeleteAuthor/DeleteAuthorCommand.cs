@@ -6,8 +6,8 @@ namespace API.Application.AuthorOperations.DeleteAuthor
     public class DeleteAuthorCommand
     {
         public int AuthorId { get; set; }
-        private readonly Context _context;
-        public DeleteAuthorCommand(Context context)
+        private readonly IContext _context;
+        public DeleteAuthorCommand(IContext context)
         {
             _context = context;
         }

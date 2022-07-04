@@ -6,9 +6,9 @@ namespace API.Application.GenreOperations.GetGenres
 {
     public class GetGenresQuery
     {
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public GetGenresQuery(Context context, IMapper mapper)
+        public GetGenresQuery(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

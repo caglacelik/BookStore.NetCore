@@ -5,8 +5,8 @@ namespace API.Application.GenreOperations.DeleteGenre
     public class DeleteGenreCommand
     {
         public int GenreId { get; set; }
-        private readonly Context _context;
-        public DeleteGenreCommand(Context context)
+        private readonly IContext _context;
+        public DeleteGenreCommand(IContext context)
         {
             _context = context;
         }

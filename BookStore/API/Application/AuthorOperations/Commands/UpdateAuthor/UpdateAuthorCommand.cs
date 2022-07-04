@@ -7,8 +7,8 @@ namespace API.Application.AuthorOperations.UpdateAuthor
     {
         public UpdateAuthorViewModel Model { get; set; }
         public int AuthorId { get; set; }
-        private readonly Context _context;
-        public UpdateAuthorCommand(Context context)
+        private readonly IContext _context;
+        public UpdateAuthorCommand(IContext context)
         {
             _context = context;
         }

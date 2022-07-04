@@ -18,9 +18,9 @@ namespace API.Controllers
     [Route("[controller]s")]
     public class AuthorController : ControllerBase
     {
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public AuthorController(Context context, IMapper mapper)
+        public AuthorController(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

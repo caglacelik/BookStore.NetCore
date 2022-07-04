@@ -7,9 +7,9 @@ namespace API.Application.GenreOperations.GetGenreDetail
     public class GetGenreDetailQuery
     {
         public int GenreId { get; set; }
-        private readonly Context _context;
+        private readonly IContext _context;
         private readonly IMapper _mapper;
-        public GetGenreDetailQuery(Context context, IMapper mapper)
+        public GetGenreDetailQuery(IContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
